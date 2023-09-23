@@ -101,6 +101,7 @@ class EncryptedDirectMessage(Event):
     recipient_pubkey: str = None
     cleartext_content: str = None
     reference_event_id: str = None
+    event_kind: int = EventKind.ENCRYPTED_DIRECT_MESSAGE
 
     def __post_init__(self):
         if self.content is not None:
@@ -110,7 +111,7 @@ class EncryptedDirectMessage(Event):
         if self.recipient_pubkey is None:
             raise Exception("Must specify a recipient_pubkey.")
 
-        self.kind = EventKind.ENCRYPTED_DIRECT_MESSAGE
+        self.kind = self.event_kind
         super().__post_init__()
 
         # Must specify the DM recipient's pubkey in a 'p' tag
