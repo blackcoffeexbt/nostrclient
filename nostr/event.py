@@ -17,7 +17,9 @@ class EventKind(IntEnum):
     CONTACTS = 3
     ENCRYPTED_DIRECT_MESSAGE = 4
     DELETE = 5
-
+    WALLET_CONNECT_INFO = 13194
+    WALLET_CONNECT_REQUEST = 23194
+    WALLET_CONNECT_RESPONSE = 23195
 
 @dataclass
 class Event:
